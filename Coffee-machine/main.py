@@ -49,6 +49,15 @@ def check_resources(drink):
         return 0
     return (1)
 
+def process_coins():
+    quarters = input("How many quarters:")
+    dimes = input("How many pennies:")
+    nickles = input("How many nickles:")
+    pennies = input("How many dimes:")
+    result = (0.25 * quarters) + (0.10 * dimes) + (0.05 * nickles) + (0.01 * pennies)
+    return result
+
+
 if __name__ == "__main__":
     state = True
     while state:
@@ -60,3 +69,6 @@ if __name__ == "__main__":
             print(f"Milk: {resources['milk']}ml")
             print(f"Coffee: {resources['coffee']}g")
             print(f"Money: ${resources['price']}")
+        elif (res in 'espresso', 'latte', 'cappuccino'):
+            if check_resources(res):
+                print()
