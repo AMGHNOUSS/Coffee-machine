@@ -57,6 +57,15 @@ def process_coins():
     result = (0.25 * quarters) + (0.10 * dimes) + (0.05 * nickles) + (0.01 * pennies)
     return result
 
+def check_transaction(drink):
+    if process_coins() < Menu[drink]['component']['price']:
+        print("Sorry that's not enough money. Money refunded.")
+    elif process_coins() == Menu[drink]['component']['price']:
+        print(f"Here is your {drink} ☕️. Enjoy!")
+    else:
+        result = process_coins() - Menu[drink]['component']['price']
+        print(f"Here is your {drink} ☕️. Enjoy!")
+        print(f"Here is ${result} in change.")
 
 if __name__ == "__main__":
     state = True
