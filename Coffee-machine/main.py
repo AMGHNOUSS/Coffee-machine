@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Coffee Machine"""
 Menu = {
     'espresso': {
@@ -34,6 +35,7 @@ resources = {
             'price': 0
 }
 
+# Function for if there are enough resources to make that drink.
 def check_resources(drink):
     water = Menu[drink]['component']['water']
     milk = Menu[drink]['component']['milk']
@@ -50,14 +52,18 @@ def check_resources(drink):
     else:
         return (1)
 
+# Function for calculate the monetary value of the coins inserted.
 def process_coins():
     quarters = input("How many quarters:")
     dimes = input("How many pennies:")
     nickles = input("How many nickles:")
     pennies = input("How many dimes:")
-    result = (0.25 * float(quarters)) + (0.10 * float(dimes)) + (0.05 * float(nickles)) + (0.01 * float(pennies))
+    result = (0.25 * float(quarters)) + (0.10 * float(dimes)) + \
+        (0.05 * float(nickles)) + (0.01 * float(pennies))
     return (result)
 
+# Function Check that the user has inserted enough money 
+# #to purchase the drink they selected.
 def check_transaction(drink, reslt):
     if reslt < Menu[drink]['component']['price']:
         print("Sorry that's not enough money. Money refunded.")
@@ -70,12 +76,14 @@ def check_transaction(drink, reslt):
         print(f"Here is your {drink} ☕️. Enjoy!")
         print("Here is ${:.2f} in change.".format(result))
 
+# Function to make a coffee 
 def make_cofffe(drink):
     resources['water'] = resources['water'] - Menu[drink]['component']['water']
     resources['milk'] = resources['milk'] - Menu[drink]['component']['milk']
     resources['coffee'] = resources['coffee'] - Menu[drink]['component']['coffee']
     resources['price'] = resources['price'] + Menu[drink]['component']['price']
 
+# The main program.
 if __name__ == "__main__":
     state = True
     while state:
