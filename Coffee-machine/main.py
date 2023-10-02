@@ -40,34 +40,35 @@ def check_resources(drink):
     coffee = Menu[drink]['component']['coffee']
     if (water > resources['water']):
         print('Sorry there is not enough water')
-        return 0
-    if (milk > resources['milk']):
+        return (0)
+    elif (milk > resources['milk']):
         print('Sorry there is not enough milk.')
-        return 0
-    if (coffee > resources['coffee']):
+        return (0)
+    elif (coffee > resources['coffee']):
         print('Sorry there is not enough coffee.')
-        return 0
-    return (1)
+        return (0)
+    else:
+        return (1)
 
 def process_coins():
     quarters = input("How many quarters:")
     dimes = input("How many pennies:")
     nickles = input("How many nickles:")
     pennies = input("How many dimes:")
-    result = (0.25 * quarters) + (0.10 * dimes) + (0.05 * nickles) + (0.01 * pennies)
-    return result
+    result = (0.25 * float(quarters)) + (0.10 * float(dimes)) + (0.05 * float(nickles)) + (0.01 * float(pennies))
+    return (result)
 
-def check_transaction(drink):
-    if process_coins() < Menu[drink]['component']['price']:
+def check_transaction(drink, reslt):
+    if reslt < Menu[drink]['component']['price']:
         print("Sorry that's not enough money. Money refunded.")
-    elif process_coins() == Menu[drink]['component']['price']:
+    elif reslt == Menu[drink]['component']['price']:
         make_cofffe(drink)
         print(f"Here is your {drink} ☕️. Enjoy!")
     else:
-        result = process_coins() - Menu[drink]['component']['price']
+        result = reslt - Menu[drink]['component']['price']
         make_cofffe(drink)
         print(f"Here is your {drink} ☕️. Enjoy!")
-        print(f"Here is ${result} in change.")
+        print("Here is ${:.2f} in change.".format(result))
 
 def make_cofffe(drink):
     resources['water'] = resources['water'] - Menu[drink]['component']['water']
@@ -86,6 +87,7 @@ if __name__ == "__main__":
             print(f"Milk: {resources['milk']}ml")
             print(f"Coffee: {resources['coffee']}g")
             print(f"Money: ${resources['price']}")
-        elif (res in 'espresso', 'latte', 'cappuccino'):
+        elif (res in ['espresso', 'latte', 'cappuccino']):
             if check_resources(res):
-                print()
+                coins = process_coins()
+                check_transaction(res, coins)
