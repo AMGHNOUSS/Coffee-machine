@@ -61,11 +61,19 @@ def check_transaction(drink):
     if process_coins() < Menu[drink]['component']['price']:
         print("Sorry that's not enough money. Money refunded.")
     elif process_coins() == Menu[drink]['component']['price']:
+        make_cofffe(drink)
         print(f"Here is your {drink} ☕️. Enjoy!")
     else:
         result = process_coins() - Menu[drink]['component']['price']
+        make_cofffe(drink)
         print(f"Here is your {drink} ☕️. Enjoy!")
         print(f"Here is ${result} in change.")
+
+def make_cofffe(drink):
+    resources['water'] = resources['water'] - Menu[drink]['component']['water']
+    resources['milk'] = resources['milk'] - Menu[drink]['component']['milk']
+    resources['coffee'] = resources['coffee'] - Menu[drink]['component']['coffee']
+    resources['price'] = resources['price'] + Menu[drink]['component']['price']
 
 if __name__ == "__main__":
     state = True
