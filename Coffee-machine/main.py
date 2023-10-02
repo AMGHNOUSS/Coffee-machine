@@ -40,13 +40,13 @@ def check_resources(drink):
     coffee = Menu[drink]['component']['coffee']
     if (water > resources['water']):
         print('Sorry there is not enough water')
-        exit()
+        return 0
     if (milk > resources['milk']):
         print('Sorry there is not enough milk.')
-        exit()
+        return 0
     if (coffee > resources['coffee']):
         print('Sorry there is not enough coffee.')
-        exit()
+        return 0
     return (1)
 
 if __name__ == "__main__":
