@@ -20,7 +20,7 @@ class Menu:
             MenuItem('cappuccino', 3.0, 250, 100, 24)
         ]
     
-    def find_coffe(self, name_coffee):
+    def find_coffee(self, name_coffee):
         for item in self.menu:
             if name_coffee == item.name:
                 return item
