@@ -19,3 +19,9 @@ class Menu:
             MenuItem('latte', 2.5, 200, 150, 24),
             MenuItem('cappuccino', 3.0, 250, 100, 24)
         ]
+    
+    def find_coffe(self, name_coffee):
+        for item in self.menu:
+            if name_coffee == item.name:
+                return item
+            print("This coffee was not available.")
