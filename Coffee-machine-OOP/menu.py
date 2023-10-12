@@ -20,6 +20,12 @@ class Menu:
             MenuItem('cappuccino', 3.0, 250, 100, 24)
         ]
     
+    def get_items(self):
+        options = ""
+        for item in self.menu:
+            options += item.name + "/"
+        return options
+
     def find_coffee(self, name_coffee):
         for item in self.menu:
             if name_coffee == item.name:
