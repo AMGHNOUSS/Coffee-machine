@@ -17,7 +17,7 @@ class CoffeeMaker:
         print(f"Coffee: {self.resources['coffee']}g")
         print(f"Money: ${self.resources['price']}")
     
-    def ressources_sufficient(self, name):
+    def resources_sufficient(self, name):
         for item in self.menu:
             if name == item.name:
                 water = item.component['water']
