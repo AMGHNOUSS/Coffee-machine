@@ -30,4 +30,5 @@ class Menu:
         for item in self.menu:
             if name_coffee == item.name:
                 return item
-            print("This coffee was not available.")
+        print("This coffee was not available.")
+        return (0)
