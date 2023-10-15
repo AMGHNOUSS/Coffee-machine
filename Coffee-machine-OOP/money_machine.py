@@ -32,6 +32,6 @@ class MoneyMachine:
         elif cost == ord.price:
             return True
         else:
-            result = cost - ord.name
+            result = cost - ord.price
             print("Here is ${:.2f} in change.".format(result))
             return True
