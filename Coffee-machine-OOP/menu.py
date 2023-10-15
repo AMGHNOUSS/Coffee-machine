@@ -15,9 +15,9 @@ class Menu:
     """Class Menu"""
     def __init__(self):
         self.menu = [
-            MenuItem('espresso', 1.5, 50, 0, 18),
-            MenuItem('latte', 2.5, 200, 150, 24),
-            MenuItem('cappuccino', 3.0, 250, 100, 24)
+            MenuItem("espresso", 1.5, 50, 0, 18),
+            MenuItem("latte", 2.5, 200, 150, 24),
+            MenuItem("cappuccino", 3.0, 250, 100, 24)
         ]
     
     def get_items(self):
