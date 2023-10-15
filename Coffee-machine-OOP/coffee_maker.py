@@ -11,18 +11,16 @@ class CoffeeMaker:
             'price': 0
         }
     
-    def reportt(self):
+    def report(self):
         print(f"Water: {self.resources['water']}ml")
         print(f"Milk: {self.resources['milk']}ml")
         print(f"Coffee: {self.resources['coffee']}g")
         print(f"Money: ${self.resources['price']}")
     
-    def resources_sufficient(self, name):
-        for item in self.menu:
-            if name == item.name:
-                water = item.component['water']
-                milk = item.component['milk']
-                coffee = item.component['coffee']
+    def resources_sufficient(self, ord):
+        water = ord.component['water']
+        milk = ord.component['milk']
+        coffee = ord.component['coffee']
         if (water > self.resources['water']):
             print('Sorry there is not enough water')
             return (0)
@@ -34,3 +32,11 @@ class CoffeeMaker:
             return (0)
         else:
             return (1)
+    
+    def make_coffee(self, ord):
+        """Deducts the required ingredients from the resources."""
+        self.resources['water'] -= ord.component['water']
+        self.resources['milk'] -= ord.component['milk']
+        self.resources['coffee'] -= ord.component['coffee']
+        self.resources['price'] += ord.price
+        print(f"Here is your {ord.name} ☕️. Enjoy!")
