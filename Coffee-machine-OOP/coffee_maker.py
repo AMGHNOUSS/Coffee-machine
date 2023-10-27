@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-from menu import Menu
 class CoffeeMaker:
     """Class coffeeMaker"""
     def __init__(self):
