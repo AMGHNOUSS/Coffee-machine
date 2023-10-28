@@ -9,3 +9,7 @@ class TestMoneyMachine(unittest.TestCase):
     def setUp(self):
         """Create attribute"""
         self.mm = MoneyMachine()
+    
+    def test_report(self):
+        """Test function report"""
+        self.assertEqual(self.mm.report(), None)
