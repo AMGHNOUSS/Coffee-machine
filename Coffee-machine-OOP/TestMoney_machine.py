@@ -22,3 +22,8 @@ class TestMoneyMachine(unittest.TestCase):
         """test function making a coffee."""
         mi = MenuItem("espresso", 1.5, 50, 0, 18)
         self.assertEqual(self.mm.make_coffee(1, mi), False)
+    
+    def test_make_coffee_true(self):
+        """test function making a coffee."""
+        mi = MenuItem("espresso", 1.5, 50, 0, 18)
+        self.assertEqual(self.mm.make_coffee(1.5, mi), True)
