@@ -13,3 +13,7 @@ class TestMoneyMachine(unittest.TestCase):
     def test_report(self):
         """Test function report"""
         self.assertEqual(self.mm.report(), None)
+    
+    def test_calcul(self):
+        """Test function calcul"""
+        self.assertEqual(self.mm.calcul(), 1.2)
